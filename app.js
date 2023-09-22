@@ -1,6 +1,4 @@
 const ul = document.querySelector('ul');
-// const button = document.querySelector('button');
-
 
 const myLibrary = [];
 
@@ -9,10 +7,6 @@ function Book(title, author, pages) {
     this.author = author;
     this.pages = pages;
 }
-
-
-
-
 
 function addBookToLibrary(title, author, pages) {
     const newBook = new Book(title, author, pages);
@@ -29,25 +23,31 @@ function displayBooklist() {
     } }
 
 
-
-    document.querySelector('button').addEventListener('click', () => {
-        const inTitle = document.querySelector('input-title');
-        const inAuthor = document.querySelector('input-author');
-        const inPages= document.querySelector('input-pages');
-
-        let newEntry = document.createElement('li') 
-        newEntry.textContent = `${inTitle} by ${inAuthor}, ${inPages} pages`
-        
-        console.log("help!!!")
-        ul.appendChild(newEntry);
-    }
+    document.querySelector('form').addEventListener('submit', (e) => {
+        e.preventDefault(); // Prevent the form from submitting and refreshing the page
     
-    )
+        const inTitle = document.getElementById('input-title').value;
+        const inAuthor = document.getElementById('input-author').value;
+        const inPages = document.getElementById('input-pages').value;
+    
+        console.log(inTitle);
+        addBookToLibrary(inTitle, inAuthor, inPages);
+        displayLastBook();
 
+            // Reset input fields
+        document.getElementById('input-title').value = "";
+        document.getElementById('input-author').value = "";
+        document.getElementById('input-pages').value = "";
 
+    });
 
+    function displayLastBook() {
+        const lastItem = myLibrary[myLibrary.length -1]; 
 
-
+       const lastLI = document.createElement('li');
+       lastLI.textContent = `${lastItem.title} by ${lastItem.author}, ${lastItem.pages} pages`;
+       ul.appendChild(lastLI);
+    }
 
 
 addBookToLibrary('Home Alone', 'John Hughes', 224);
