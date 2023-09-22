@@ -1,4 +1,6 @@
 const ul = document.querySelector('ul');
+// const button = document.querySelector('button');
+
 
 const myLibrary = [];
 
@@ -7,6 +9,10 @@ function Book(title, author, pages) {
     this.author = author;
     this.pages = pages;
 }
+
+
+
+
 
 function addBookToLibrary(title, author, pages) {
     const newBook = new Book(title, author, pages);
@@ -21,6 +27,27 @@ function displayBooklist() {
 
         ul.appendChild(newLI);
     } }
+
+
+
+    document.querySelector('button').addEventListener('click', () => {
+        const inTitle = document.querySelector('input-title');
+        const inAuthor = document.querySelector('input-author');
+        const inPages= document.querySelector('input-pages');
+
+        let newEntry = document.createElement('li') 
+        newEntry.textContent = `${inTitle} by ${inAuthor}, ${inPages} pages`
+        
+        console.log("help!!!")
+        ul.appendChild(newEntry);
+    }
+    
+    )
+
+
+
+
+
 
 
 addBookToLibrary('Home Alone', 'John Hughes', 224);
