@@ -1,4 +1,4 @@
-const ul = document.querySelector('ul');
+const div = document.querySelector('div');
 
 const myLibrary = [];
 
@@ -15,11 +15,16 @@ function addBookToLibrary(title, author, pages) {
 
 function displayBooklist() {
     for (i = 0; i < myLibrary.length; i++) {
-        let newLI = document.createElement('li')
+        let newDiv = document.createElement('div');
+        newDiv.classList.add('card');
+        let newPara = document.createElement('p')
         // newLI.classList.add('liBook');
-        newLI.textContent = `${myLibrary[i].title} by ${myLibrary[i].author}, ${myLibrary[i].pages} pages`
 
-        ul.appendChild(newLI);
+       
+        newPara.textContent = `${myLibrary[i].title} by ${myLibrary[i].author}, ${myLibrary[i].pages} pages`
+
+        div.appendChild(newDiv)
+        newDiv.appendChild(newPara);
     } }
 
 
@@ -44,15 +49,17 @@ function displayBooklist() {
     function displayLastBook() {
         const lastItem = myLibrary[myLibrary.length -1]; 
 
-       const lastLI = document.createElement('li');
-       lastLI.textContent = `${lastItem.title} by ${lastItem.author}, ${lastItem.pages} pages`;
-       ul.appendChild(lastLI);
+       const lastBook = document.createElement('div');
+       lastBook.classList.add('card');
+       lastBook.textContent = `${lastItem.title} by ${lastItem.author}, ${lastItem.pages} pages`;
+       div.appendChild(lastBook);
     }
 
 
 addBookToLibrary('Home Alone', 'John Hughes', 224);
 addBookToLibrary('Home Alone 2', 'John Hughes', 500);
 addBookToLibrary('Christmas', 'Hughes Jane', 560);
+addBookToLibrary('Easter', 'Hughes Jane', 550);
 
 displayBooklist();
 

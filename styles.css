@@ -1,3 +1,53 @@
+* {
+	margin: 4%;
+	padding: 0;
+	
+
+}
+
+h1 {
+    text-align: center;
+}
+
 li {
     font-size: 20px;
 }
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 10%;
+   
+}
+.card {
+    display: inline;
+    width: 200px;
+    height: 75px;
+    border: grey;
+    box-shadow: 0 3px 5px 0 black;
+    background-color: bisque;
+    padding: 20px;
+    margin: 20px;
+}
+
+.form-center {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(98, 120, 139);
+    width: 250px;
+    border-radius: 7px;
+    text-align: center;
+}
+
+button {
+    width: 150px;
+    height: 40px;
+    background-color: palevioletred;
+    color: white;
+    border-radius: 5px;
+    
+    
+}
+
+ /* // delete button, local storage, database storage, amazon api for reviews */
